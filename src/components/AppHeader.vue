@@ -1,17 +1,21 @@
 <script>
+import AppSearch from "./AppSearch.vue";
+
 export default {
+  name: "AppHeader",
+
   data() {
-    return {
-      title: "Hello World",
-    };
+    return {};
+  },
+
+  components: {
+    AppSearch,
   },
 };
 </script>
 
 <template>
-  <h1 class="text-danger">
-    {{ title }}
-  </h1>
+  <AppSearch message="ciao" />
 </template>
 
 <style scoped></style>
