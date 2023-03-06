@@ -23,4 +23,10 @@ export default {
   </h1>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+@use "../scss/variables" as *;
+
+h1 {
+  color: $primary-color;
+}
+</style>
