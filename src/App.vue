@@ -17,7 +17,7 @@ export default {
     AppMain,
   },
   methods: {
-    fetchFilterpage(term) {
+    fetchFilterpage() {
       axios
         .get("https://api.themoviedb.org/3/search/" + "movie", {
           params: {
@@ -29,6 +29,20 @@ export default {
         .then((response) => {
           store.movies = response.data.results;
         });
+
+      axios
+        .get("https://api.themoviedb.org/3/search/" + "tv", {
+          params: {
+            api_key: "84085ac7e9dc8921140ff7714d95eabd",
+            query: this.store.term,
+            language: "it-IT",
+          },
+        })
+        .then((response) => {
+          console.log(response);
+
+          this.store.series = response.data.results;
+        });
     },
   },
 };
@@ -39,4 +53,6 @@ export default {
   <AppMain />
 </template>
 
-<style lang="scss"></style>
+<style lang="scss">
+@use "./assets/css/main.css" as *;
+</style>
